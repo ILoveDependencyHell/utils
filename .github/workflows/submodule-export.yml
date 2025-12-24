@@ -55,9 +55,13 @@ jobs:
             fi
           done < .github/submodule-blacklist.txt
 
+      - name: Commit Changes
+        run: |
+            git add -A
+            git commit -m "Submodule Export"
+
       - name: Push export branch
         run: |
           REPO_NAME="${GITHUB_REPOSITORY##*/}"
           EXPORT_BRANCH="${REPO_NAME}-submodule"
-          git add *
           git push --set-upstream origin "$EXPORT_BRANCH" --force
