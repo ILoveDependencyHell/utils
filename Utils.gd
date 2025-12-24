@@ -1,4 +1,4 @@
 class_name utils extends Node
 
-func hello_utils() -> void:
-	print("Hello, Utils!")
+func hello_utils(p_source: String) -> void:
+	prints(p_source, "> Hello, Utils!")
