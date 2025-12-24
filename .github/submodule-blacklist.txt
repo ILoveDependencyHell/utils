@@ -2,3 +2,4 @@ project.godot
 .github/
 Utils.tscn
 *.uid
+.gitignore

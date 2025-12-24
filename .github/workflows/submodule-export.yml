@@ -28,7 +28,7 @@ jobs:
           REPO_NAME="${GITHUB_REPOSITORY##*/}"
           EXPORT_BRANCH="${REPO_NAME}-submodule"
           git checkout -B "$EXPORT_BRANCH" origin/main
-
+      
       - name: Apply blacklist
         run: |
           BLACKLIST=".github/submodule-blacklist.txt"
@@ -44,16 +44,6 @@ jobs:
             echo "Removing: $line"
             rm -rf $line
           done < "$BLACKLIST"
-
-      # - name: Validate blacklist applied
-      #   run: |
-      #     while IFS= read -r line || [ -n "$line" ]; do
-      #       [[ "$line" =~ ^#.*$ || -z "$line" ]] && continue
-      #       if ls $line 1>/dev/null 2>&1; then
-      #         echo "Blacklisted path still exists: $line"
-      #         exit 1
-      #       fi
-      #     done < .github/submodule-blacklist.txt
 
       - name: Commit Changes
         run: |
