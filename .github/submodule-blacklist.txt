@@ -1,4 +1,0 @@
-project.godot
-.github/
-Utils.tscn
-.gitignore
