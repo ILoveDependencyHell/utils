@@ -11,4 +11,5 @@ config_version=5
 [application]
 
 config/name="Utils"
+run/main_scene="uid://ce0be1gxxkwqo"
 config/features=PackedStringArray("4.5")
