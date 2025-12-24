@@ -59,4 +59,5 @@ jobs:
         run: |
           REPO_NAME="${GITHUB_REPOSITORY##*/}"
           EXPORT_BRANCH="${REPO_NAME}-submodule"
+          git add *
           git push --set-upstream origin "$EXPORT_BRANCH" --force
