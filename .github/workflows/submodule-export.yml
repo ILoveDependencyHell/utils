@@ -55,8 +55,8 @@ jobs:
             fi
           done < .github/submodule-blacklist.txt
 
-      - name: Commit and push
+      - name: Push export branch
         run: |
-          git add -A
-          git commit -m "Generate submodule-export from main" || echo "No changes to commit"
-          git push origin $EXPORT_BRANCH --force
+          REPO_NAME="${GITHUB_REPOSITORY##*/}"
+          EXPORT_BRANCH="${REPO_NAME}-submodule"
+          git push --set-upstream origin "$EXPORT_BRANCH" --force
